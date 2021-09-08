@@ -33,8 +33,7 @@ namespace DIS_Assignment_1
                     second_half_vowels++;
                 }
             }
-
-            if (first_half_vowels == second_half_vowels)
+            if (first_half_vowels == second_half_vowels && first_half_vowels != 0 && second_half_vowels != 0)
             {
                 return true;
             }
@@ -75,6 +74,9 @@ namespace DIS_Assignment_1
 
         //Question 3
         /* Approach: 
+         * I used nested for loops to iterate the nested array.
+         * I took a variable "sum" which is equal to the sum of all the elements within the array at each index individually.
+         * Simultaneously, I keep changing the value of the variable "largest" after comparing it with each value of the sum.
          */
         static public int MaximumWealth(int[,] arr)
         {
@@ -97,8 +99,6 @@ namespace DIS_Assignment_1
             return largest;
         }
 
-        //Question 4
-
         static public bool uniqueCharacters(string input)
         {
             for (int i = 0; i < input.Length - 1; i++)
@@ -113,6 +113,12 @@ namespace DIS_Assignment_1
             }
             return true;
         }
+
+        //Question 4
+        /* Approach:
+         * for each character in string stones, I check if that character is present in string jewels.
+         * If it is present, then I increase the count and return it at the end.
+         */
         static public int NumJewelsInStones(string jewels, string stones)
         {
             int count = 0;
@@ -127,6 +133,10 @@ namespace DIS_Assignment_1
         }
 
         //Question 5
+        /* Approach:
+         * I created a list having each character of the input string word2
+         * then, foreach character in input string, I assign that char to index value of the list = count in that particular iteration
+         */
         static public string RestoreString(string word2, int[] indices)
         {
             var new_list = new List<char>();
@@ -151,6 +161,11 @@ namespace DIS_Assignment_1
 
 
         //Question 6
+        /*Approach:
+         * created an empty target list
+         * then used forloop to insert each value of array nums at each index from the index array into the target list
+         * convert the list to array at the end and return it.
+         */
         static public int[] CreateTargetArray(int[] nums, int[] index)
         {
             var target_list = new List<int>(nums.Length);
@@ -209,7 +224,7 @@ namespace DIS_Assignment_1
             Console.WriteLine();
 
             //Question 3:
-            int[,] arr = new int[,] { { 1, 2, 3 }, { 3, 2, 1 } };
+            int[,] arr = new int[,] { { 2, 8, 7 }, { 7, 1, 3 }, { 1, 9, 5 } };
             int Wealth = MaximumWealth(arr);
             Console.WriteLine("Q3:");
             Console.WriteLine("Richest person has a wealth of {0}", Wealth);
@@ -217,13 +232,13 @@ namespace DIS_Assignment_1
 
 
             //Question 4:
-            string jewels = "aa";
-            string stones = "aaabbbb";
+            string jewels = "aA";
+            string stones = "aAAbbbb";
             Console.WriteLine("Q4:");
             bool unique_jewels = uniqueCharacters(jewels);
             bool jewels_alpha = Regex.IsMatch(jewels, "^[a-zA-Z]+$");
             bool stones_alpha = Regex.IsMatch(stones, "^[a-zA-Z]+$");
-           
+
             if (jewels.Length >= 1 && jewels.Length <= 50 && stones.Length>=1 && stones.Length<=50 && unique_jewels && jewels_alpha && stones_alpha)
             {
                 int num = NumJewelsInStones(jewels, stones);
@@ -234,10 +249,10 @@ namespace DIS_Assignment_1
 
             //Question 5:
             Console.WriteLine("Q5:");
-            string word2 = "aaiougrt";
-            int[] indices = { 4, 0, 2, 6, 7, 3, 1, 5 };
+            string word2 = "art";
+            int[] indices = { 1, 0, 2 };
             int n = word2.Length;
-            bool word2_letters = Regex.IsMatch(jewels, "^[a-z]+$");
+            bool word2_letters = Regex.IsMatch(word2, "^[a-z]+$");
             string indices_string = string.Join("", indices);
             bool unique_indices = uniqueCharacters(indices_string);
             if (n==indices.Length && n>=1 && n<=100 && word2_letters && unique_indices)
@@ -250,8 +265,8 @@ namespace DIS_Assignment_1
 
             //Quesiton 6:
             Console.WriteLine("Q6: ");
-            int[] nums = { 0, 1, 2, 3, 4 };
-            int[] index = { 0, 1, 2, 2, 1 };
+            int[] nums = { 1, 2, 3, 4, 0 };
+            int[] index = { 0, 1, 2, 3, 0 };
             int[] target = CreateTargetArray(nums, index);
             Console.WriteLine("Target array  for the Given array's is:");
             for (int i = 0; i < target.Length; i++)
