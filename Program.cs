@@ -278,3 +278,9 @@ namespace DIS_Assignment_1
         }
     }
 }
+
+
+/*My self reflection on assignment:
+ * I actually got more confidence on creating functions and calling them in the main(). This is my first time using c#
+ * Using data structures like arrays and lists was fun and knowledable.
+ * I don't have any negative comments on this assignment. This assignment is only helping me to become more proficient on the concepts on c# */
