@@ -99,6 +99,8 @@ namespace DIS_Assignment_1
             return largest;
         }
 
+        /* Additional function to check if the input has all unique characters or not. Used it to check the imput of Questions 4 and 5
+         */
         static public bool uniqueCharacters(string input)
         {
             for (int i = 0; i < input.Length - 1; i++)
